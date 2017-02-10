@@ -15,6 +15,7 @@
 		AD4FAF031E4D4A5A002EC05C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD4FAF011E4D4A5A002EC05C /* LaunchScreen.storyboard */; };
 		AD4FAF0E1E4D4A5A002EC05C /* College_Profile_BuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4FAF0D1E4D4A5A002EC05C /* College_Profile_BuilderTests.swift */; };
 		AD4FAF191E4D4A5A002EC05C /* College_Profile_BuilderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4FAF181E4D4A5A002EC05C /* College_Profile_BuilderUITests.swift */; };
+		AD4FAF271E4D4C14002EC05C /* College.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4FAF261E4D4C14002EC05C /* College.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		AD4FAF141E4D4A5A002EC05C /* College Profile BuilderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "College Profile BuilderUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD4FAF181E4D4A5A002EC05C /* College_Profile_BuilderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = College_Profile_BuilderUITests.swift; sourceTree = "<group>"; };
 		AD4FAF1A1E4D4A5A002EC05C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD4FAF261E4D4C14002EC05C /* College.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = College.swift; path = ../College.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		AD4FAEF51E4D4A5A002EC05C /* College Profile Builder */ = {
 			isa = PBXGroup;
 			children = (
+				AD4FAF261E4D4C14002EC05C /* College.swift */,
 				AD4FAEF61E4D4A5A002EC05C /* AppDelegate.swift */,
 				AD4FAEF81E4D4A5A002EC05C /* MasterViewController.swift */,
 				AD4FAEFA1E4D4A5A002EC05C /* DetailViewController.swift */,
@@ -268,6 +271,7 @@
 				AD4FAEFB1E4D4A5A002EC05C /* DetailViewController.swift in Sources */,
 				AD4FAEF91E4D4A5A002EC05C /* MasterViewController.swift in Sources */,
 				AD4FAEF71E4D4A5A002EC05C /* AppDelegate.swift in Sources */,
+				AD4FAF271E4D4C14002EC05C /* College.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
