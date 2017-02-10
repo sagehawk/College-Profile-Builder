@@ -7,29 +7,33 @@
 //
 
 import UIKit
+import RealmSwift
 
 class DetailViewController: UIViewController {
-
+    
     @IBOutlet weak var collegeTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var enrollmentTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     
+    let realm = try! Realm()
     var detailItem: College? {
         didSet {
             
         }
     }
-        @IBAction func onTappedSaveButton(_ sender: Any) {
+    @IBAction func onTappedSaveButton(_ sender: Any) {
         if let college = self.detailItem {
-        college.name = collegeTextField.text!
-        college.location = locationTextField.text!
-        college.enrollment = Int(enrollmentTextField.text!)!
-        college.image = UIImagePNGRepresentation(imageView.image!)!
+            try! realm.write({
+                college.name = collegeTextField.text!
+                college.location = locationTextField.text!
+                college.enrollment = Int(enrollmentTextField.text!)!
+                college.image = UIImagePNGRepresentation(imageView.image!)!
+            })
         }
-        }
-
-
+    }
+    
+    
     func configureView() {
         // Update the user interface for the detail item
         if let college = self.detailItem {
@@ -41,20 +45,20 @@ class DetailViewController: UIViewController {
             }
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
     
-    }
+    
+}
 
 
 
