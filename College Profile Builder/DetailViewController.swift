@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import SafariServices
 
 class DetailViewController: UIViewController {
     
@@ -15,6 +16,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var enrollmentTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var websiteTextField: UITextField!
     
     let realm = try! Realm()
     var detailItem: College? {
@@ -29,6 +31,7 @@ class DetailViewController: UIViewController {
                 college.location = locationTextField.text!
                 college.enrollment = Int(enrollmentTextField.text!)!
                 college.image = UIImagePNGRepresentation(imageView.image!)!
+                college.website = websiteTextField.text!
             })
         }
     }
@@ -42,6 +45,7 @@ class DetailViewController: UIViewController {
                 locationTextField.text = college.location
                 enrollmentTextField.text = String(college.enrollment)
                 imageView.image = UIImage(data: college.image)
+                websiteTextField.text = college.website
             }
         }
     }
