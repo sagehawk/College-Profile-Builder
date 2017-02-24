@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import SafariServices
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var collegeTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
@@ -18,11 +18,32 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var websiteTextField: UITextField!
     
+    let imagePicker = UIImagePickerController()
     let realm = try! Realm()
     var detailItem: College? {
         didSet {
-            
+    
         }
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        imagePicker.dismiss(animated: true) {
+            let selectedImage = info[UIImagePickerControllerOriginalImage] as!
+            UIImage
+            self.imageView.image = selectedImage
+        }
+    }
+    
+    @IBAction func onTappedChangeWebsiteButton(_ sender: UIButton) {
+        
+        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+    }
+    @IBAction func onTappedWebsiteButton(_ sender: UIButton) {
+        
+        let urlString = websiteTextField.text!
+        let url = URL(string: urlString)
+        let svc = SFSafariViewController(url: url!)
+        present(svc, animated: true, completion: nil)
     }
     @IBAction func onTappedSaveButton(_ sender: Any) {
         if let college = self.detailItem {
@@ -52,6 +73,8 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imagePicker.delegate = self
+
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
     }
